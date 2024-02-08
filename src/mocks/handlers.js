@@ -106,10 +106,16 @@ const allCustomers = [
 
 export const handlers = [
     http.post('/addCustomer', async ({ request }) => {
-        const newCustomer = await request.json()
+        try {
+            const newCustomer = await request.json()
  
-        allCustomers.push(newCustomer)
-        return HttpResponse.json(newCustomer,{status:201})
+            allCustomers.push(newCustomer)
+            return HttpResponse.json(newCustomer,{status:201})
+        } catch (error) {
+            console.error('Error while adding customer:', error);
+            return HttpResponse.error('Error while adding customer', 500);
+        }
+    
      
     }),
 

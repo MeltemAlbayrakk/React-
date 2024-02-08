@@ -22,9 +22,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import CreateIcon from '@mui/icons-material/Create';
 
-const getDetails = async()=>{
-  window.location.reload()
-}
+
 
 const columns = [
   { field: 'name', headerName: 'Name', width: 130 },
@@ -52,6 +50,7 @@ const columns = [
 
 
 const MyModal = ({ open, onClose }) => {
+
   const [name,setName] = React.useState("");
   const [surname,setSurname] = React.useState("");
   const [email,setEmail] = React.useState("");
@@ -65,6 +64,21 @@ const MyModal = ({ open, onClose }) => {
     setDate(date);  
   }
 
+  const fetchCustomers =async()=>{
+    try {
+        const response=  await fetch("/getCustomers")
+        if (!response.ok) {
+            throw new Error("Network error")
+        }
+        const data = await response.json();
+        setRows(data);
+    } catch (error) {
+        console.error("Error fetching data:",error)
+    }
+    
+   
+  }
+
   const saveCustomer =async ()=>{
     const requestOptions = {
       method: 'POST', 
@@ -74,7 +88,8 @@ const MyModal = ({ open, onClose }) => {
     console.log("giden :",requestOptions)
     const responseAddCustomer = await fetch("/addCustomer",requestOptions)
     console.log("gelen :",responseAddCustomer)
-
+    onClose();
+    fetchCustomers(); 
     
   }
   return (
@@ -180,14 +195,14 @@ export default function DataTable() {
    
   }
    
-    const ChangeCardForm =()=>{
-         if (cardForm) {
-            setCardForm(false)
-         }else{
-            setCardForm(true)
-         }
-        
-}
+  const ChangeCardForm =()=>{
+    if (cardForm) {
+      setCardForm(false)
+    }else{
+      setCardForm(true)
+    }
+  
+  }
 
 
 
