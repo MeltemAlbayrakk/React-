@@ -145,22 +145,22 @@ export default function PrimarySearchAppBar() {
 
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src={userPhoto} />
+              <Avatar sx={{width:"70px", height:"70px", marginTop:"8px"}} alt="Remy Sharp" src={userPhoto} />
             </IconButton>
           </Tooltip>
           <Box sx={{ marginLeft: "10px" }}>
-            <Typography sx={{ color: "#AEAEAE", fontWeight: "bold" }}>
+            <Typography sx={{ fontSize:"16px", color:"black", fontWeight: "bold" }}>
               Abrilay Khatun
             </Typography>
-            <Typography sx={{ color: "#AEAEAE", opacity: "0.8" }}>
+            <Typography sx={{ fontSize:"14px", color: "#AEAEAE", opacity: "0.8" }}>
               abrilakh@gmail.com
             </Typography>
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-          <TravelExploreIcon onClick={handleOpenCountriesMenu} sx={{color:"#684BF3", mr: 4, my: 0.5 }} />
+          <TravelExploreIcon onClick={handleOpenCountriesMenu} sx={{ cursor:"pointer",color:"#684BF3", mr: 4, my: 0.5 }} />
 
-          <PrintIcon sx={{color:"#684BF3", mr: 4, my: 0.5 }} />
+          <PrintIcon sx={{cursor:"pointer",color:"#684BF3", mr: 4, my: 0.5 }} />
 
         <Box sx={{float:"right",marginRight:"10px"}}> 
             <Typography sx={{fontSize:"20px",textAlign:"right",color:"black", fontWeight:"bold"}}>{currentTime.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
@@ -171,16 +171,16 @@ export default function PrimarySearchAppBar() {
           </Typography>
           </Box>
          
-          <Button sx={{ backgroundColor: "#9C99FD", borderRadius: "15px", "&:hover": { backgroundColor: "#6F51FF" } }} variant="contained">Pending Tasks</Button>
-          <Box sx={{ color: "#9C99FD", display: { xs: 'none', md: 'flex' } }}>
+          <Button sx={{ fontSize:"10px",fontWeight:"bold",height:"50px",backgroundColor: "#6347E8", borderRadius: "50px", "&:hover": { backgroundColor: "#9C99FD" } }} variant="contained">Pending Tasks</Button>
+          <Box sx={{ color: "#684BF3", display: { xs: 'none', md: 'flex' } }}>
             <Box sx={{ '& > :not(style)': { m: 1 } }}>
               <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                <SearchIcon sx={{ color:"#684BF3", mr: 1, my: 0.5 }} />
-                <TextField sx={{}} id="input-with-sx" label="Search" variant="standard" />
+                <SearchIcon sx={{ cursor:"pointer",color:"#684BF3", ml:1,mr: 1, my: 0.5 }} />
+                {/* <TextField sx={{}} id="input-with-sx" label="Search" variant="standard" /> */}
               </Box>
             </Box>
-
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            
+            <IconButton size="large"  color="inherit">
          
                 <MailIcon />
               
@@ -191,7 +191,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 22 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={22} color="error">
+              <Badge badgeContent={22} color="success">
                 <NotificationsIcon />
               </Badge>
             </IconButton>

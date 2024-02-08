@@ -21,7 +21,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import CreateIcon from '@mui/icons-material/Create';
-
+import photoUpload from '../images/photoUpload.png'
 
 
 const columns = [
@@ -106,69 +106,84 @@ const MyModal = ({ open, onClose }) => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: 400,
+          height:700,
+          width: 600,
           bgcolor: 'background.paper',
           boxShadow: 24,
           p: 4,
         }}
       >
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-         Account Settings
-        </Typography>
+        <Typography sx={{ marginLeft:"230px",fontWeight:"bold", color:"#333333"}}>Account Settings</Typography> 
         <Box>
-        <Container style={{height:"30%"}}> 
-            <Typography>Name</Typography>  
+      <img style={{width:"200px",height:"200px"}}src={photoUpload}/>
+      
+    
+        
+        <Container style={{ marginTop:"-190px",marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Name</Typography>  
             <Input
+            sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
+            placeholder='Type Here'
             onChange={(e)=>{setName(e.target.value)}}
             />
         </Container>
 
-        <Container style={{height:"30%"}}> 
-            <Typography>Surname</Typography>  
+        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Surname</Typography>  
             <Input
-         
+         sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
+         placeholder='Type Here'
             onChange={(e)=>{setSurname(e.target.value)}}
             />
         </Container>
 
-        <Container style={{height:"30%"}}> 
-            <Typography>Email</Typography>  
+        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Email</Typography>  
             <Input
+            sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
+            placeholder='Type Here'
             onChange={(e)=>{setEmail(e.target.value)}}
             />
         </Container>
-        <Container style={{height:"30%"}}> 
-            <Typography>Phone</Typography>  
+        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Phone</Typography>  
             <Input
+            sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
             type='number'
+            placeholder='Type Here'
             onChange={(e)=>{setPhone(e.target.value)}}
             />
         </Container>
-        <Container style={{height:"30%"}}> 
-            <Typography>Age</Typography>  
+        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Age</Typography>  
             <Input
+            sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
             type='number'
+            placeholder='Type Here'
             onChange={(e)=>{setAge(e.target.value)}}
             />
         </Container>
-        <Container style={{height:"30%"}}> 
-            <Typography>Post</Typography>  
+        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Post</Typography>  
             <Input
+            sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
+            placeholder='Type Here'
             onChange={(e)=>{setPost(e.target.value)}}
             />
         </Container>
-        <Container style={{height:"30%"}}> 
-            <Typography>Joining Date</Typography>  
+        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+            <Typography sx={{fontWeight:"bold", color:"#333333"}}>Joining Date</Typography>  
             <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DatePicker']}>
         <DatePicker onChange={handleDateChange}  />
       </DemoContainer>
     </LocalizationProvider>
         </Container>
+  
 
         </Box>
-        <Button onClick={saveCustomer}>Save </Button>
-        <Button onClick={onClose}>Close </Button>
+        <Button sx={{ marginTop:"30px",marginLeft:"250px",fontSize:"10px",fontWeight:"bold",height:"50px",backgroundColor: "#6347E8", borderRadius: "50px", "&:hover": { backgroundColor: "#9C99FD" } }} variant="contained">Save Changes</Button>
+        <Button sx={{marginTop:"33px",marginLeft:"20px",color:"red", fontSize:"13px",fontWeight:"bold"}}onClick={onClose}>Cancel </Button>
       </Box>
     </Modal>
   );
@@ -225,29 +240,29 @@ React.useEffect (()=>{
 
 
   
-<Box sx={{ backgroundColor:"#F0F0F0", height:"91vh"}}>
+<Box sx={{ backgroundColor:"#F0F0F0", height:"90vh"}}>
     <Box sx={{backgroundColor:"#F0F0F0",height:"90px"}}>
         <Box sx={{marginLeft:"20px",backgroundColor:"#FFFFFF",height:"70px", width:"95%"}} >
            
             <Box sx={{ '& > :not(style)': { m: 1 } ,}}>
               <Box sx={{ justifyContent:"center",display: 'flex', alignItems: 'flex-end' }}>
-              <AddCircleIcon onClick={handleOpenModal} sx={{ color:"#684BF3", marginRight:"100px"}}/>
+              <AddCircleIcon onClick={handleOpenModal} sx={{ color:"#684BF3", marginLeft:"-100px",marginRight:"30px", cursor:"pointer"}}/>
               <MyModal open={modalOpen} onClose={handleCloseModal} />
-                <SearchIcon sx={{ color: '#9C99FD', mr: 1, my: 0.5 }} />
-                <TextField id="input-with-sx" label="Search" variant="standard" />
-
-                <BorderAllIcon onClick={ChangeCardForm}sx={{ marginLeft:"100px",color:"#684BF3"}}/>
-                <DeleteIcon sx={{ marginLeft:"100px",color:"#684BF3"}}/>
-                <StarBorderIcon sx={{color:"#684BF3" ,marginLeft:"30px"}}/>
+               
+                <TextField sx={{ justifyContent:"center",borderRadius:"10px" ,marginTop:"10px",height:"50px",width:"400px",backgroundColor:"#F0F0F0",}} id="" label=" Search Here" variant="standard" />
+              <SearchIcon sx={{ marginLeft:"10px", color: '#9C99FD', mr: 1, my: 0.5 ,cursor:"pointer"}} />
+                <BorderAllIcon onClick={ChangeCardForm}sx={{ marginLeft:"600px",color:"#684BF3",cursor:"pointer"}}/>
+                <DeleteIcon sx={{ marginLeft:"100px",color:"#684BF3",cursor:"pointer"}}/>
+                <StarBorderIcon sx={{color:"#684BF3" ,marginLeft:"30px",cursor:"pointer"}}/>
               </Box>
             </Box>
         </Box>
     
      </Box>
     {
-        cardForm ? <Box sx={{ justifyContent:"left",display: "flex", flexWrap: "wrap" }}>
+        cardForm ? <Box sx={{justifyContent:"left",display: "flex", flexWrap: "wrap" }}>
           {rows.map((row) => (
-        <Card sx={{ width:"335px", margin: "40px" }}>
+        <Card sx={{  width:"335px", margin: "40px" }}>
           <Box sx={{ display: "flex", width: "100px", height: "100px", margin: "30px" }}>
             <img src={user} style={{ borderRadius: "50%" }} />
             <Box sx={{ marginLeft: "40px", float: "right" }}>
