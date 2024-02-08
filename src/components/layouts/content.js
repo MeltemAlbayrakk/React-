@@ -21,7 +21,14 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import CreateIcon from '@mui/icons-material/Create';
-import photoUpload from '../images/photoUpload.png'
+
+import IconButton from '@mui/material/IconButton';
+import TableContainer from '@mui/material/TableContainer';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
 
 
 const columns = [
@@ -92,6 +99,9 @@ const MyModal = ({ open, onClose }) => {
     fetchCustomers(); 
     
   }
+
+
+
   return (
     
     <Modal
@@ -113,13 +123,12 @@ const MyModal = ({ open, onClose }) => {
           p: 4,
         }}
       >
-        <Typography sx={{ marginLeft:"230px",fontWeight:"bold", color:"#333333"}}>Account Settings</Typography> 
+        <Typography sx={{ marginLeft:"200px",fontWeight:"bold", color:"#333333"}}>Account Settings</Typography> 
         <Box>
-      <img style={{width:"200px",height:"200px"}}src={photoUpload}/>
       
     
         
-        <Container style={{ marginTop:"-190px",marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginTop:"0px",marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Name</Typography>  
             <Input
             sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
@@ -128,7 +137,7 @@ const MyModal = ({ open, onClose }) => {
             />
         </Container>
 
-        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Surname</Typography>  
             <Input
          sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
@@ -137,7 +146,7 @@ const MyModal = ({ open, onClose }) => {
             />
         </Container>
 
-        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Email</Typography>  
             <Input
             sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
@@ -145,7 +154,7 @@ const MyModal = ({ open, onClose }) => {
             onChange={(e)=>{setEmail(e.target.value)}}
             />
         </Container>
-        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Phone</Typography>  
             <Input
             sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
@@ -154,7 +163,7 @@ const MyModal = ({ open, onClose }) => {
             onChange={(e)=>{setPhone(e.target.value)}}
             />
         </Container>
-        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Age</Typography>  
             <Input
             sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
@@ -163,7 +172,7 @@ const MyModal = ({ open, onClose }) => {
             onChange={(e)=>{setAge(e.target.value)}}
             />
         </Container>
-        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Post</Typography>  
             <Input
             sx={{backgroundColor:"#F0F0F0", borderRadius:"10px", width:"60%",height:"40px",marginBottom:"20px"}}
@@ -171,7 +180,7 @@ const MyModal = ({ open, onClose }) => {
             onChange={(e)=>{setPost(e.target.value)}}
             />
         </Container>
-        <Container style={{ marginLeft:"200px",height:"30%"}}> 
+        <Container style={{ marginLeft:"100px",height:"30%"}}> 
             <Typography sx={{fontWeight:"bold", color:"#333333"}}>Joining Date</Typography>  
             <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DatePicker']}>
@@ -182,7 +191,7 @@ const MyModal = ({ open, onClose }) => {
   
 
         </Box>
-        <Button sx={{ marginTop:"30px",marginLeft:"250px",fontSize:"10px",fontWeight:"bold",height:"50px",backgroundColor: "#6347E8", borderRadius: "50px", "&:hover": { backgroundColor: "#9C99FD" } }} variant="contained">Save Changes</Button>
+        <Button onClick={saveCustomer}sx={{ marginTop:"30px",marginLeft:"180px",fontSize:"10px",fontWeight:"bold",height:"50px",backgroundColor: "#6347E8", borderRadius: "50px", "&:hover": { backgroundColor: "#9C99FD" } }} variant="contained">Save Changes</Button>
         <Button sx={{marginTop:"33px",marginLeft:"20px",color:"red", fontSize:"13px",fontWeight:"bold"}}onClick={onClose}>Cancel </Button>
       </Box>
     </Modal>
@@ -219,7 +228,10 @@ export default function DataTable() {
   
   }
 
-
+  const deleteCustomer = (customerId) => {
+    // Burada deleteCustomer fonksiyonunu kullanarak, customerId ile belirtilen müşteriyi silme isteğini gönderin
+    console.log('Deleting customer with id:', customerId);
+  };
 
 React.useEffect (()=>{
    loadCustomers();
@@ -252,7 +264,7 @@ React.useEffect (()=>{
                 <TextField sx={{ justifyContent:"center",borderRadius:"10px" ,marginTop:"10px",height:"50px",width:"400px",backgroundColor:"#F0F0F0",}} id="" label=" Search Here" variant="standard" />
               <SearchIcon sx={{ marginLeft:"10px", color: '#9C99FD', mr: 1, my: 0.5 ,cursor:"pointer"}} />
                 <BorderAllIcon onClick={ChangeCardForm}sx={{ marginLeft:"600px",color:"#684BF3",cursor:"pointer"}}/>
-                <DeleteIcon sx={{ marginLeft:"100px",color:"#684BF3",cursor:"pointer"}}/>
+                <DeleteIcon  sx={{ marginLeft:"100px",color:"#684BF3",cursor:"pointer"}}/>
                 <StarBorderIcon sx={{color:"#684BF3" ,marginLeft:"30px",cursor:"pointer"}}/>
               </Box>
             </Box>
@@ -261,8 +273,9 @@ React.useEffect (()=>{
      </Box>
     {
         cardForm ? <Box sx={{justifyContent:"left",display: "flex", flexWrap: "wrap" }}>
-          {rows.map((row) => (
-        <Card sx={{  width:"335px", margin: "40px" }}>
+          
+          {rows.map((row)=>{
+            <Card sx={{  width:"335px", margin: "40px" }}>
           <Box sx={{ display: "flex", width: "100px", height: "100px", margin: "30px" }}>
             <img src={user} style={{ borderRadius: "50%" }} />
             <Box sx={{ marginLeft: "40px", float: "right" }}>
@@ -289,7 +302,8 @@ React.useEffect (()=>{
         
           </CardActions>
         </Card>
-          ))}
+          })}
+ 
 
         
        

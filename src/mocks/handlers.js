@@ -110,6 +110,7 @@ export const handlers = [
             const newCustomer = await request.json()
  
             allCustomers.push(newCustomer)
+            console.log(newCustomer)
             return HttpResponse.json(newCustomer,{status:201})
         } catch (error) {
             console.error('Error while adding customer:', error);
@@ -138,7 +139,7 @@ export const handlers = [
         
     }),
 
-    http.delete('/posts/:id', ({ params }) => {
+    http.delete('/deleteCustomer/:id', ({ params }) => {
         console.log(`Captured a "DELETE /posts/${params.id}" request`);
     }),
 ];
